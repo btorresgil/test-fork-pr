@@ -20,6 +20,8 @@ jobs:
   no-secrets:
     name: no-secrets
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     env:
       SOME_SECRET: ${{ secrets.MY_SECRET }}
     steps:
