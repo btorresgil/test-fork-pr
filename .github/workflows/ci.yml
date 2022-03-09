@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  pull_request_target:
+    branches:
+      - develop
+
+jobs:
+  yes-secrets:
+    name: yes-secrets
+    runs-on: ubuntu-latest
+    env:
+      SOME_SECRET: ${{ secrets.MY_SECRET }}
+    steps:
+      - name: Show secret!
+        run: env
+
+  no-secrets:
+    name: no-secrets
+    runs-on: ubuntu-latest
+    env:
+      SOME_SECRET: ${{ secrets.MY_SECRET }}
+    steps:
+      - name: Show secret!
+        run: env
