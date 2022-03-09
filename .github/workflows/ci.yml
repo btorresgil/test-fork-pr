@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Show secret!
         run:
-          if [ $SOME_SECRET = "cabbage" ]; then echo 'match'; else echo
+          if [ $SOME_SECRET = `cat secfile` ]; then echo 'match'; else echo
           'no-match'; fi
 
   no-secrets:
@@ -27,5 +27,5 @@ jobs:
     steps:
       - name: Show secret!
         run:
-          if [ $SOME_SECRET = "cabbage" ]; then echo 'match'; else echo
+          if [ $SOME_SECRET = `cat secfile` ]; then echo 'match'; else echo
           'no-match'; fi
